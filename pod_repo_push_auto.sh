@@ -26,7 +26,7 @@ echo ""
 current_Folder=$(pwd)
 
 
-SpecsFolder="~/.cocoapods/repos/PodSpecs"
+SpecsFolder="/Users/"$USER"/PodSpecs"
 
 echo "SpecsFolder="$SpecsFolder
 
