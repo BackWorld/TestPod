@@ -26,7 +26,7 @@ if [ ! -d "$SpecsFolder" ]; then
 echo "PodSpecs目录不存在"
 echo "[  cd /Users/"$USER "  ]"
 cd "/Users/"$USER
-echo "[  git clone"$remote_specs "  ]"
+echo "[  git clone "$remote_specs "  ]"
 git clone $remote_specs
 
 if [ $? -ne 0 ]
@@ -55,9 +55,7 @@ fi
 cd $current_Folder
 
 echo "|------------------------------------|"
-echo "|                                    |"
 echo "|        1.获取podspec文件名称         |"
-echo "|                                    |"
 echo "|------------------------------------"
 
 echo "[  cd "$current_Folder"  ]"
@@ -69,9 +67,7 @@ libName=`echo $podspec_fileName | cut -d \. -f 1`
 
 
 echo "|------------------------------------|"
-echo "|                                    |"
 echo "|               2.更新lib             |"
-echo "|                                    |"
 echo "|------------------------------------"
 
 echo "[  git status  ]"
@@ -90,9 +86,7 @@ git push origin master
 last_version=$(cat $podspec_fileName | grep -E -o "([0-9]{1,3}[\.]){2}[0-9]{1,3}"|head -n 1)
 
 echo "|------------------------------------|"
-echo "|                                    |"
 echo "|             3.增加版本号             |"
-echo "|                                    |"
 echo "|------------------------------------"
 
 echo "last_version = "$last_version
@@ -121,9 +115,7 @@ echo "new_version = "$new_version
 #替换版本号
 
 echo "|------------------------------------|"
-echo "|                                    |"
 echo "|     4.替换版本号，更新lib             |"
-echo "|                                    |"
 echo "|------------------------------------"
 
 sed -i "" "/.version/s/$last_version/$new_version/" "$podspec_fileName"
@@ -155,9 +147,7 @@ echo "[  git push  ]"
 git push origin master
 
 echo "|------------------------------------|"
-echo "|                                    |"
 echo "|             5.添加tag               |"
-echo "|                                    |"
 echo "|------------------------------------"
 
 echo ""
@@ -182,9 +172,7 @@ fi
 
 
 echo "|------------------------------------|"
-echo "|                                    |"
 echo "|     6.拷贝.podspec到PodSpecs工程      |"
-echo "|                                    |"
 echo "|------------------------------------"
 
 new_version_Folder=$SpecsFolder"/"$libName"/"$new_version
@@ -215,9 +203,7 @@ cp $podspec_fileName $new_version_Folder"/"$podspec_fileName
 
 
 echo "|------------------------------------|"
-echo "|                                    |"
 echo "|             7.更新PodSpecs           |"
-echo "|                                    |"
 echo "|------------------------------------"
 
 cd $SpecsFolder
@@ -243,9 +229,7 @@ git push origin master
 
 
 echo "|------------------------------------|"
-echo "|                                    |"
 echo "|             发布成功！               |"
 echo "|            "$new_version"          |"
-echo "|                                    |"
 echo "|------------------------------------"
 
