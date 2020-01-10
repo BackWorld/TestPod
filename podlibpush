@@ -9,21 +9,21 @@
 
 
 echo "|------------------------------------|"
-echo "|         0.检查PodSpecs目录           |"
+echo "|         0.检查ZSSpecs目录           |"
 echo "|------------------------------------"
 
 current_Folder=$(pwd)
 
-remote_specs="git@github.com:BackWorld/PodSpecs.git"
+remote_specs="git@gitee.com:flytoo/ZSSpecs.git"
 
-SpecsFolder="/Users/"$USER"/PodSpecs"
+SpecsFolder="/Users/"$USER"/ZSSpecs"
 
 echo "SpecsFolder="$SpecsFolder
 
-echo "检查PodSpecs目录"
+echo "检查ZSSpecs目录"
 
 if [ ! -d "$SpecsFolder" ]; then
-echo "PodSpecs目录不存在"
+echo "ZSSpecs目录不存在"
 echo "[  cd /Users/"$USER "  ]"
 cd "/Users/"$USER
 echo "[  git clone "$remote_specs "  ]"
@@ -36,11 +36,11 @@ exit 1
 fi
 
 else
-echo "PodSpecs已经存在"
+echo "ZSSpecs已经存在"
 echo "目录"$SpecsFolder
 cd $SpecsFolder
 echo "[  cd "$SpecsFolder"  ]"
-echo "同步PodSpecs"
+echo "同步ZSSpecs"
 git pull origin master
 
 if [ $? -ne 0 ]
@@ -172,7 +172,7 @@ fi
 
 
 echo "|------------------------------------|"
-echo "|     6.拷贝.podspec到PodSpecs工程      |"
+echo "|     6.拷贝.podspec到ZSSpecs工程      |"
 echo "|------------------------------------"
 
 new_version_Folder=$SpecsFolder"/"$libName"/"$new_version
@@ -203,7 +203,7 @@ cp $podspec_fileName $new_version_Folder"/"$podspec_fileName
 
 
 echo "|------------------------------------|"
-echo "|             7.更新PodSpecs           |"
+echo "|             7.更新ZSSpecs           |"
 echo "|------------------------------------"
 
 cd $SpecsFolder
