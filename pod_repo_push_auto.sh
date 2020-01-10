@@ -273,7 +273,7 @@ fi
 fi
 
 cd $libName_Folder
-echo "----------    cd  ----------"libName_Folder
+echo "----------    cd  ----------"$libName_Folder
 mkdir $new_version
 echo "----------    mkdir  ----------"$new_version
 
@@ -298,6 +298,7 @@ echo ""
 echo ""
 echo ""
 cd $SpecsFolder
+echo "cd "$SpecsFolder
 
 echo ""
 echo ""
