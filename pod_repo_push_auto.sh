@@ -35,8 +35,7 @@ echo "----------    检查PodSpecs目录存不存在"
 if [ ! -d "$SpecsFolder" ]; then
 echo "----------    如果不存在就创建父级目录 然后git clone  ----------"
 echo "创建"$SpecsFolder
-mkdir $SpecsFolder
-cd $SpecsFolder
+cd "/Users/"$USER
 git clone git@github.com:BackWorld/PodSpecs.git
 
 if [ $? -ne 0 ]
