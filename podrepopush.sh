@@ -20,7 +20,7 @@ SpecsFolder="/Users/"$USER"/PodSpecs"
 
 echo "SpecsFolder="$SpecsFolder
 
-echo "检查PodSpecs目录存不存在"
+echo "检查PodSpecs目录"
 
 if [ ! -d "$SpecsFolder" ]; then
 echo "PodSpecs目录不存在"
